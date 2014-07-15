@@ -8,7 +8,7 @@ class CratePlugin(application: Application) extends Plugin {
 
   private var started = false
 
-  val DefaultHost = "localhost"
+  val DefaultHost = "localhost:4300"
 
   lazy val client = {
     import com.typesafe.config.ConfigFactory
