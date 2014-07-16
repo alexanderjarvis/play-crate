@@ -28,7 +28,7 @@ class CratePlugin(application: Application) extends Plugin {
   }
 
   override def onStop {
-    if (started) {
+    if (started && Play.current.mode != Mode.Test) {
       client.close()
       Logger.info("Crate Plugin has stopped")
     }
