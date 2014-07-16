@@ -37,6 +37,8 @@ class CratePlugin(application: Application) extends Plugin {
 
 object CratePlugin {
 
+  def client(implicit app: Application) = current.client
+
   def current(implicit app: Application): CratePlugin = app.plugin[CratePlugin] match {
     case Some(plugin) => plugin
     case _ => throw new PlayException("CratePlugin Error", "The CratePlugin has not been initialized! Please edit your conf/play.plugins file and add the following line: '300:io.crate.client.CratePlugin' (300 is an arbitrary priority and may be changed to match your needs).")
